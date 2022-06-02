@@ -6,22 +6,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from '../searchbar/searchbar';
 
 
-export default function Navbar () {
+export default function Navbar(props) {
 
+    const { handleSearch } = props
+    console.log(props)
     return (
         <Nav activeKey="/home">
             <Nav.Item>
                 Logo
-            </Nav.Item>    
+            </Nav.Item>
             <Nav.Item>
-            <Link to="/">Home</Link>
+                <Link to="/">Home</Link>
             </Nav.Item>
             <Nav.Item className='searchbar'>
-                <Searchbar />
+                <Searchbar handleSearch={handleSearch} />
             </Nav.Item>
             <Nav.Item>
                 <Link to="/favoritos">Favoritos</Link>
-            </Nav.Item> 
+            </Nav.Item>
         </Nav>
     )
 }
