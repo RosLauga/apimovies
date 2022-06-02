@@ -7,11 +7,8 @@ const CardMovie = (props) => {
 
     return (
         <>
-
             <img width="100" src={Poster} alt={title} />
             <span>Titulo: {title}</span>
-
-
         </>
     )
 }

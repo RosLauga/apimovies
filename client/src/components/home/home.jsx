@@ -12,8 +12,8 @@ const Home = (props) => {
                 {
                     props.movie.Search ? props.movie.Search.map(m => {
                         return (
-                            <div className="containerCardMovie">
-                                <Link key={m.imdbID} onClick={() => props.handleDetail(m.imdbID)} to={`/${m.imdbID}`}>
+                            <div key={m.imdbID} className="containerCardMovie">
+                                <Link onClick={() => props.handleDetail(m.imdbID)} to={`/${m.imdbID}`}>
                                     <CardMovie key={m.imdbID} title={m.Title} Poster={m.Poster} />
                                 </Link>
                             </div>
