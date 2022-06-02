@@ -12,12 +12,12 @@ export default function Searchbar(props) {
     }
 
     useEffect(() => {
-        fetch(`https://imdb-api.com/en/API/SearchMovie/k_99nmup8g/${inputtext}`)
+        fetch(`http://www.omdbapi.com/?s=${inputtext}&p=1&apikey=ccf0242c`)
             .then(data => data.json())
-            .then(info => handleSearch(info.results))
+            .then(info => handleSearch(info))
     }, [inputtext])
 
-    console.log()
+
     // https://imdb-api.com/en/API/SearchMovie/k_99nmup8g/only
     return (
         <div>

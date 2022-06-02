@@ -1,17 +1,28 @@
-import CardMovie from "../cardmovie";
+import CardMovie from "../cards/cardmovie";
+import { Link } from 'react-router-dom'
 
 
 const Home = (props) => {
-    console.log("info", props)
+
+
     return (
         <>
             <h1>Home</h1>
-            <ul>
+            <div className="containerCards" >
                 {
-                    props.movie ? props.movie.map(m => <li><CardMovie title={m.title} /></li>) : "Cargando.."
+                    props.movie.Search ? props.movie.Search.map(m => {
+                        return (
+                            <div className="containerCardMovie">
+                                <Link key={m.imdbID} onClick={() => props.handleDetail(m.imdbID)} to={`/${m.imdbID}`}>
+                                    <CardMovie key={m.imdbID} title={m.Title} Poster={m.Poster} />
+                                </Link>
+                            </div>
+                        )
+                    })
+                        : "Cargando.."
 
                 }
-            </ul>
+            </div>
         </>
     )
 }

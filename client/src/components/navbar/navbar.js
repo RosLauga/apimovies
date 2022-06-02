@@ -9,7 +9,7 @@ import Searchbar from '../searchbar/searchbar';
 export default function Navbar(props) {
 
     const { handleSearch } = props
-    console.log(props)
+
     return (
         <Nav activeKey="/home">
             <Nav.Item>

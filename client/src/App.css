@@ -32,6 +32,18 @@ body {
   color: #61dafb;
 }
 
+.containerCardMovie {
+  display: flex;
+  flex-direction: row;
+  width: 40vw;
+  margin: 0 auto;
+  border-bottom: 2px solid black
+}
+
+.containerCardMovie span {
+  padding-left: 15px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
