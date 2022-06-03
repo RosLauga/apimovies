@@ -12,9 +12,9 @@ export default function Navbar(props) {
 
     return (
         <Nav activeKey="/home">
-            <Nav.Item>
+            <div>
                 Logo
-            </Nav.Item>
+            </div>
             <Nav.Item>
                 <Link to="/">Home</Link>
             </Nav.Item>

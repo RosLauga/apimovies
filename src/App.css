@@ -1,3 +1,11 @@
+body {
+  background-color: rgba(226, 206, 162, 0.649);
+}
+
+#root {
+  background-color: rgba(226, 206, 162, 0.649);
+}
+
 .App {
   text-align: center;
 }
@@ -28,11 +36,104 @@
   color: #61dafb;
 }
 
+.containerCards {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.containerCardMovie {
+  display: flex;
+  flex-direction: row;
+  width: 40vw;
+  height: 20vh;
+  background: black;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  transition: all 0.5s;
+
+
+}
+
+.containerCardMovie::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17C3B2;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.containerCardMovie h2 {
+  padding-left: 15px;
+  align-self: center;
+  color: white;
+  font-size: 2.5vh;
+  width: 100%;
+  transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.containerCardMovie:hover::before {
+  width: 105%;
+}
+
+.containerCardMovie:hover h2 {
+  color: black;
+  font-size: 3.5vh;
+  transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.containerCardDetails {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  margin: 0 auto;
+  border-bottom: 2px solid black
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.containerInfo span {
+  padding-left: 15px;
+}
+
+
+
+.containera {
+  text-decoration: none !important;
+  color: black;
+  margin: 1em 1em;
+}
+
+.containerCardMovie img {
+  width: 100px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/*********** OWL CAROUSEL ***********/
+
+.Owl-item {
+  width: 200px;
+
 }

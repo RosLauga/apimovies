@@ -20,8 +20,8 @@ export default function Searchbar(props) {
 
     // https://imdb-api.com/en/API/SearchMovie/k_99nmup8g/only
     return (
-        <div>
-            <input type="text" value={inputtext} onChange={handleChange} placeholder='ingrese el nombre' />
-        </div>
+
+        <input type="text" value={inputtext} onChange={handleChange} placeholder='ingrese el nombre' />
+
     )
 }
