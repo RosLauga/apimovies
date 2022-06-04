@@ -104,11 +104,26 @@ body {
   text-align: left;
 }
 
+/* .containerInfo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1px solid black;
+  background: yellow;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+} */
+
 .containerInfo span {
   padding-left: 15px;
 }
 
+.starfav {
 
+  position: absolute;
+  margin-left: 100%;
+}
 
 .containera {
   text-decoration: none !important;

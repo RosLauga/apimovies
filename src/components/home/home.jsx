@@ -18,17 +18,16 @@ const Home = (props) => {
             .then(info => setIncom(info))
     }, [])
 
-    console.log("incom", incom)
     return (
         <>
             <h1>Coming Soon</h1>
             <div className="contentmain">
 
 
-                <OwlCarousel className="owl-theme" nav items={4}>
+                <OwlCarousel className="owl-theme" items={4}>
                     {
                         incom ? incom.map((p) => (
-                            <div class="Owl-item">
+                            <div key={p.title} className="Owl-item">
                                 <CardIncoming
                                     title={p.title}
                                     Poster={p.image}
