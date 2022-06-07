@@ -1,4 +1,4 @@
-body {
+body, html {
   background-color: rgba(226, 206, 162, 0.649);
 }
 
@@ -114,22 +114,32 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: rgba(226, 206, 162, 0.649);
+  background: rgba(47, 46, 45, 0.65);
   width: 100%;
+  color: white;
+  position: relative;
+  top: 100%;
+  transition: all .5s ease-in-out;
 }
 
 .containerCardDetailsFav {
   display: flex;
   flex-flow: wrap;
-  margin:auto 1em;
+  margin: auto 1em;
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 2px solid black;
   overflow: hidden;
-  width: 26vw;
-  height: 49vw; 
+  width: 36vw;
+  height: 50vw;
+  position: relative;
   max-height: 490px;
-  max-width: 266px;
+  max-width: 315px;
+}
+
+.containerCardDetailsFav:hover .containerInfoFav {
+  top:0%;
+  transition: all .5s ease-in-out;
 }
 
 /* .containerInfo::after {
