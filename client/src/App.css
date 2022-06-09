@@ -17,17 +17,27 @@ body, html {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
   }
 }
 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -37,24 +47,33 @@ body, html {
 }
 
 .containerCards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   height: 100%;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .containerCardMovie {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 40vw;
   height: 20vh;
   background: #000000;
   overflow: hidden;
   z-index: 1;
   position: relative;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
-
-
 }
 
 .containerCardMovie::before {
@@ -64,8 +83,10 @@ body, html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
   background: #17C3B2;
+  -webkit-transition: .5s ease;
   transition: .5s ease;
   display: block;
   z-index: -1;
@@ -73,11 +94,14 @@ body, html {
 
 .containerCardMovie h2 {
   padding-left: 15px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   color: white;
   font-size: 2.5vh;
   width: 100%;
-  transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .containerCardMovie:hover::before {
@@ -87,44 +111,63 @@ body, html {
 .containerCardMovie:hover h2 {
   color: black;
   font-size: 3.5vh;
-  transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .containerCardDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 60vw;
   margin: 0 auto;
   border-bottom: 2px solid black;
 }
 
-.containerCardDetails img, .containerCardDetailsFav img  {
+.containerCardDetails img, .containerCardDetailsFav img {
   width: 35vh;
 }
 
-
 .containerInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   text-align: left;
 }
 
 .containerInfoFav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center;
   background: rgba(47, 46, 45, 0.65);
   width: 100%;
   color: white;
   position: relative;
   top: 100%;
+  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
 .containerCardDetailsFav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: wrap;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   margin: auto 1em;
   background-size: cover;
   background-repeat: no-repeat;
@@ -138,7 +181,8 @@ body, html {
 }
 
 .containerCardDetailsFav:hover .containerInfoFav {
-  top:0%;
+  top: 0%;
+  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
@@ -152,13 +196,11 @@ body, html {
   width: 50px;
   height: 50px;
 } */
-
 .containerInfo span {
   padding-left: 15px;
 }
 
 .starfav {
-
   position: absolute;
   margin-left: 100%;
 }
@@ -173,20 +215,47 @@ body, html {
   width: 100px;
 }
 
-@keyframes App-logo-spin {
+@-webkit-keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
-
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 
 /*********** OWL CAROUSEL ***********/
 
+
+.fav-minus {
+  color: yellow;
+  height: 1.5em;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+.fav-minus:hover {
+  -webkit-filter: drop-shadow(2px 2px 4px rgba(255, 255, 255, 0.9));
+          filter: drop-shadow(2px 2px 4px rgba(255, 255, 255, 0.9));
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+/*********** OWL CAROUSEL ***********/
 .Owl-item {
   width: 200px;
-
 }
+/*# sourceMappingURL=App.css.map */

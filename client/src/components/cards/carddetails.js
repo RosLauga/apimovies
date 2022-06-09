@@ -1,4 +1,4 @@
-import { useState, useMemo, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import imgplain from '../../images/waitingimage.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -9,30 +9,28 @@ import MoviesContext from '../../context/context';
 
 const Carddetails = () => {
     
-    const { data, sesionLocal, callApi } = useContext(MoviesContext)
+    const { data, sesionLocal, callApi, handlerLocal } = useContext(MoviesContext)
     
     const [ detalle, cheq ] = data
 
     const { id } = useParams()
     const [fav, setFav] = useState(cheq);    
     const [favstar, setFavstar] = useState();
-    const [titulo, setTitulo] = useState()
+    
     
     console.log("Data", cheq)
 
     useEffect(() =>{   
             callApi(id)
-            
+            console.log("Cargue APIcall")
             return () => {
             }    
-    },[])    
-
-    const ultimaP = () => {
-            
-    }
+    },[fav,favstar])    
 
     // ID POR PARAMS
-    const handlerPrevFav = () => {
+    const handlerPrevFav = (e) => {
+
+        if(e.target.id == "fav"){          
         setFav(true);
         const obj = {
              Title: detalle.original_title,
@@ -42,12 +40,18 @@ const Carddetails = () => {
              Poster: detalle.poster_path,             
          }
          sesionLocal.push(obj)
-         localStorage.setItem("favoritos", JSON.stringify(sesionLocal))        
+         localStorage.setItem("favoritos", JSON.stringify(sesionLocal)) 
+        }
+        else {            
+            const newstorage = sesionLocal.filter((fm) => fm.Title !== detalle.original_title);
+            console.log("cancela favorito", newstorage);
+            localStorage.setItem("favoritos", JSON.stringify(newstorage));
+            setFav(false);
+            return handlerLocal()
+        }    
     }
-
-    
-    
-     // Revisa si la sesion existe en LocalStorage para llamarla
+   
+    // Revisa si la sesion existe en LocalStorage para llamarla
     
     return (
         <>
@@ -66,11 +70,20 @@ const Carddetails = () => {
                                 <hr></hr>
                                 <span>Plot: {detalle.overview}</span>
                                 {
-                                 cheq || favstar ? <FontAwesomeIcon icon={faHeart} />
-                                        : <FontAwesomeIcon 
-                                            onClick={() => {
-                                                handlerPrevFav()
-                                                setFavstar(true)
+                                 cheq || favstar ? 
+                                        <FontAwesomeIcon
+                                            id="nofav" 
+                                            onClick={(e) => {
+                                                handlerPrevFav(e); 
+                                                setFavstar(false);                                               
+                                            }}
+                                        icon={faHeart} 
+                                        />
+                                        : <FontAwesomeIcon
+                                            id="fav"  
+                                            onClick={(e) => {
+                                                handlerPrevFav(e);
+                                                setFavstar(true);
                                             }}
                                             icon={faLightHeart} 
                                             />
@@ -102,3 +115,5 @@ const Carddetails = () => {
 }
 
 export default Carddetails;
+
+

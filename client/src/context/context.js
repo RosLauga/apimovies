@@ -41,13 +41,19 @@ const MoviesData = ({children}) => {
    
 
     // FUNCION BUSQUEDA DETALLE DE PELICULA
-    const callApi = async (id) => {
+    const callApi = (id) => {
       
     const details = movie&&movie.find((p) => p.id == id )
     const cheqfav = sesionLocal.find((o) => o.Title == details.original_title)
     
-    if (cheqfav) setData([details, true])
-    else setData([details, false])
+    if (cheqfav) {
+      setData([details, true])
+      console.log("cheqfav",cheqfav)
+    }
+    else {
+      setData([details, false])
+      console.log("cheqfav",cheqfav)
+    }
   }  
 
     // DATA PASADA AL CONTEXTO

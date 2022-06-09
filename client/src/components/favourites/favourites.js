@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeartCircleMinus } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Favoritos () {
@@ -26,13 +28,9 @@ export default function Favoritos () {
                                 <span>Rating: {fm.Rating}</span>
                                 <hr></hr>
                                 <span>Plot: {fm.Plot}</span>
-                                {/* {
-                                    sesionL ? <FontAwesomeIcon icon={faHeart} />
-                                        : <FontAwesomeIcon 
-                                            onClick={handlerPrevFav}
-                                            icon={faLightHeart} 
-                                            />
-                                } */}
+                                
+                                <FontAwesomeIcon className="fav-minus" icon={faHeartCircleMinus}></FontAwesomeIcon>
+                                
                             </div>
                             {/* <div  alt={fm.Title} /> */}
 

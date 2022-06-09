@@ -8,7 +8,7 @@ import Searchbar from '../searchbar/searchbar';
 
 export default function Navbar() {
 
-    
+ 
 
     return (
         <Nav activeKey="/home">
